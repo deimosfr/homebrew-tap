@@ -2,13 +2,13 @@ cask "prusa-statusbar" do
   version "1.0.0"
 
   on_arm do
-    sha256 "2c0b6551a7585452ea4ccec0c3a6b31f41207f3a69861a9c00ae2c641691f885"
+    sha256 "81ae05729e58fd1a06f521d6be12501c3fe6ed79b723707209354427953c52bc"
     url "https://github.com/deimosfr/Prusa-StatusBar/releases/download/v1.0.0/PrusaStatusBar-1.0.0-arm64.dmg",
         verified: "github.com/deimosfr/Prusa-StatusBar/"
   end
 
   on_intel do
-    sha256 "efe4220b865c2391f90ccffdeafb808ae7d761496808133e38159c08ba7d3c05"
+    sha256 "9c4c68c6ff00915a6975c16086468bb1bced66121db2f7a3e15fe67a1fadc580"
     url "https://github.com/deimosfr/Prusa-StatusBar/releases/download/v1.0.0/PrusaStatusBar-1.0.0-x86_64.dmg",
         verified: "github.com/deimosfr/Prusa-StatusBar/"
   end
