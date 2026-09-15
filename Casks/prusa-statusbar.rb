@@ -1,15 +1,15 @@
 cask "prusa-statusbar" do
-  version "1.2.0"
+  version "1.3.0"
 
   on_arm do
-    sha256 "27ddfad99ef951b8c9d49149093ec8fd68f71825e2e9bf660a73a1ed983d9014"
-    url "https://github.com/deimosfr/Prusa-StatusBar/releases/download/v1.2.0/PrusaStatusBar-1.2.0-arm64.dmg",
+    sha256 "7dfeb047283c769a9c237b524c4a7479c97a3320b71e70f3f03a390116bd8824"
+    url "https://github.com/deimosfr/Prusa-StatusBar/releases/download/v1.3.0/PrusaStatusBar-1.3.0-arm64.dmg",
         verified: "github.com/deimosfr/Prusa-StatusBar/"
   end
 
   on_intel do
-    sha256 "35e0f474ac3d71a1781ab5c201de741ec91a0bedc7f276dfcf418f9a892a2cd6"
-    url "https://github.com/deimosfr/Prusa-StatusBar/releases/download/v1.2.0/PrusaStatusBar-1.2.0-x86_64.dmg",
+    sha256 "bf0d3aa4f6a4ec666e08c0d7a909866da921106bf5b6a6fbe13b89e3db15588a"
+    url "https://github.com/deimosfr/Prusa-StatusBar/releases/download/v1.3.0/PrusaStatusBar-1.3.0-x86_64.dmg",
         verified: "github.com/deimosfr/Prusa-StatusBar/"
   end
 
@@ -22,16 +22,15 @@ cask "prusa-statusbar" do
     strategy :github_latest
   end
 
-  depends_on macos: :sonoma
+  depends_on macos: ">= :sonoma"
 
   app "PrusaStatusBar.app"
 
   # Build is ad-hoc signed, not notarized. Strip the quarantine xattr so
   # Gatekeeper does not block first launch.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/PrusaStatusBar.app"],
-                   sudo: false
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args: ["-dr", "com.apple.quarantine", "{{appdir}}/PrusaStatusBar.app"]
   end
 
   zap trash: [
